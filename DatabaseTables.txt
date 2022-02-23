@@ -1,0 +1,61 @@
+
+User:
+    firstName
+    lastName
+    phNo
+    baseAddress (changable) 
+    emailAddr
+    
+Shop:
+    User (foreign key)
+    shopName
+    review
+    detailedAddress (fixed)
+          >houseNo
+          >roadNo
+          >area
+          >city
+          >district
+
+ItemReview:
+   User (foreign key)
+   Item (foreign key)
+   rating
+   comment
+
+Item:
+    Shop (foreign key)
+    itemName
+    cost
+    accumulatedRating (derived from ItemReview.rating)
+    itemImage
+    itemDetail
+
+DelevieryBoy:
+    name
+    phNo
+    qualifications
+    location
+    status
+    ...
+
+Cart(dependant on Order):
+    User (foreign key)
+    Item (foreign key)
+    quantity
+    rowSum
+    (primary key will be User and Item.Shop)
+
+Order:
+   User (foreign key)
+   Cart (foreign key)
+   DeliveryBoy (foreign key)
+   totalCost (summation of Cart.rowSum + deliveryCost)
+   remarks
+   dropLocation
+   orderTime
+   deliveryStatus
+
+
+   
+    
