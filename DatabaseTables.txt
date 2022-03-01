@@ -1,28 +1,24 @@
+User Reg, User Profile, Shop page (users own shop page), shop page table (after search), Item page (collective), item page(specif item of all shops after search), cart page, order page, admin_profile, add_delivery boy 
+
 
 User:
     firstName
     lastName
-    phNo
-    baseAddress (changable) 
+    phNo 
     emailAddr
     
 Shop:
     User (foreign key)
     shopName
     review
+    isBanned
     detailedAddress (fixed)
+          >flat no
           >houseNo
           >roadNo
           >area
           >city
           >district
-
-ItemReview:
-   User (foreign key)
-   Item (foreign key)
-   rating
-   comment
-
 Item:
     Shop (foreign key)
     itemName
@@ -30,6 +26,14 @@ Item:
     accumulatedRating (derived from ItemReview.rating)
     itemImage
     itemDetail
+
+ItemReview:
+   User (foreign key)
+   Item (foreign key)
+   rating
+   comment
+
+
 
 DelevieryBoy:
     name
@@ -55,7 +59,10 @@ Order:
    dropLocation
    orderTime
    deliveryStatus
-
+   
+order history:
+    user(foreign key)
+    order(foreing key)
 
    
     
