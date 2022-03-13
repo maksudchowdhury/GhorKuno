@@ -1,17 +1,18 @@
 import React, { useState } from "react";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../../redux/actions/auth";
 
 import { Form, Container, Row, Col, Button, Figure } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
-import kitchen_mom from "../../assets/kitchen_mom.svg";
+import kitchen_mom from "../../assets/kitchen_mom.png";
 import ghorKuno_Combained from "../../assets/ghorKuno_Combined.png";
 
 const Login = ({ login, isAuthenticated }) => {
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
+  const [cnt, set_cnt] = useState(0);
 
   let isSignUp = false;
   let isResetPassword = false;
@@ -31,21 +32,63 @@ const Login = ({ login, isAuthenticated }) => {
       event.preventDefault();
       event.stopPropagation();
     }
-
     setValidated(true);
   };
 
-  const notify = () => {
-    toast.success("Check your mail", {
-      autoClose: 3000,
-      position: toast.POSITION.BOTTOM_CENTER,
-    });
+  const notify = (toast_text, type) => {
+    if (type === "info") {
+      toast.info(`${toast_text}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (type === "success") {
+      toast.success(`${toast_text}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (type === "warn") {
+      toast.warn(`${toast_text}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    if (type === "error") {
+      toast.error(`${toast_text}`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
+    // toast.warn(`${toast_text}`, {});
   };
 
   const onSubmit = (e) => {
     handleSubmit(e);
     e.preventDefault();
     login(email, password);
+    notify("Please Input Right Email and Password", "warn");
   };
 
   const [formData, setFormData] = useState({
@@ -60,68 +103,50 @@ const Login = ({ login, isAuthenticated }) => {
   };
 
   if (isAuthenticated) {
-    return <Navigate to="/home" />;
+    navigate("/home", { replace: true });
   }
+
   // After Signup show this info
 
-  const showAfterSignup = () => (
-    <Row
-      className="text-center text-white fs-4 fw-bold rounded-3"
-      style={{
-        background: "#935B50",
-      }}
-    >
-      <Col sm>
-        A confirmation has been sent to your mail.
-        <br />
-        Please, check your mail to verify the account...
-      </Col>
-    </Row>
-  );
+  const showAfterSignup = () => {
+    if (cnt < 1) {
+      notify(
+        "A confirmation has been sent to your mail.\nPlease, check your mail to verify the account...",
+        "info"
+      );
+      set_cnt(1);
+    }
+  };
 
-  const showAfterResetPassword = () => (
-    <Row
-      className="text-center text-white fs-4 fw-bold rounded-3"
-      style={{
-        background: "#935B50",
-      }}
-    >
-      <Col sm>
-        A confirmation has been sent to your mail.
-        <br />
-        Please, check your mail to Reset Password...
-      </Col>
-    </Row>
-  );
-  const showAfterResetPasswordConfirm = () => (
-    <Row
-      className="text-center text-white fs-4 fw-bold rounded-3"
-      style={{
-        background: "#935B50",
-      }}
-    >
-      <Col sm>
-        Successfully changed your password.
-        <br />
-        Now you can login with updated password...
-      </Col>
-    </Row>
-  );
+  const showAfterResetPassword = () => {
+    if (cnt < 1) {
+      notify(
+        "A confirmation has been sent to your mail.\nPlease, check your mail to Reset Password...",
+        "info"
+      );
+      set_cnt(1);
+    }
+  };
 
-  const showAfterVerified = () => (
-    <Row
-      className="text-center text-white fs-4 fw-bold rounded-3"
-      style={{
-        background: "#935B50",
-      }}
-    >
-      <Col sm>
-        Your account has successfully verified.
-        <br />
-        Now you can login with email and password...
-      </Col>
-    </Row>
-  );
+  const showAfterResetPasswordConfirm = () => {
+    if (cnt < 1) {
+      notify(
+        "Successfully changed your password..\nNow you can login with updated password...",
+        "success"
+      );
+      set_cnt(1);
+    }
+  };
+
+  const showAfterVerified = () => {
+    if (cnt < 1) {
+      notify(
+        "Your account has successfully verified.\nNow you can login with email and password...",
+        "success"
+      );
+      set_cnt(1);
+    }
+  };
 
   return (
     <Container fluid>
@@ -129,7 +154,7 @@ const Login = ({ login, isAuthenticated }) => {
         <Col sm={4} />
         <Col sm={4}>
           <Row>
-            <Figure className="text-center p-2">
+            <Figure className="text-center px-2">
               <Figure.Image
                 width={300}
                 height={200}
@@ -230,13 +255,21 @@ const Login = ({ login, isAuthenticated }) => {
         <Col sm={4} />
       </Row>
       <Row className="justify-content-center">
-        {/* <Col sm={4} />
-        <Col sm={4} />
-        <Col sm={4}> */}
         <Figure className="justify-content-center">
           <Figure.Image height={400} alt="none" src={kitchen_mom} />
         </Figure>
-        {/* </Col> */}
+
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          draggable={false}
+          pauseOnHover
+          className="text-center fs-5 fw-bold"
+        />
       </Row>
     </Container>
   );
