@@ -66,21 +66,7 @@ const Signup = ({ signup, isAuthenticated }) => {
     handleSubmit(e);
     e.preventDefault();
     if (password === re_password && password && re_password) {
-      signup(
-        first_name,
-        last_name,
-        email,
-        house_name,
-        road_no,
-        block_no,
-        area,
-        city,
-        district,
-        mobilePhone,
-        is_worker,
-        password,
-        re_password
-      );
+      signup(email, password, re_password);
       setAccountCreated(true);
     }
     // else return alert("Password's doesn't match!!");
@@ -116,146 +102,13 @@ const Signup = ({ signup, isAuthenticated }) => {
             <Figure.Image width={1000} alt="none" src={signup_lady} />
           </Figure>
         </Col>
-        <Col sm={4} className="justify-content-center">
+        <Col sm={4} className="justify-content-center py-5">
           <Form
             noValidate
             validated={validated}
             onSubmit={(e) => onSubmit(e)}
             // className="text-center mb-2"
           >
-            <Row>
-              <Form.Group as={Col} md="6">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="first_name"
-                    value={first_name}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">First Name</label>
-                </Form.Floating>
-              </Form.Group>
-              <Form.Group as={Col} md="6">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="last_name"
-                    value={last_name}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">Last Name</label>
-                </Form.Floating>
-              </Form.Group>
-            </Row>
-            <Row>
-              <Form.Group as={Col} md="4">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="house_name"
-                    value={house_name}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">House name</label>
-                </Form.Floating>
-              </Form.Group>
-              <Form.Group as={Col} md="4">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="road_no"
-                    value={road_no}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">Road no</label>
-                </Form.Floating>
-              </Form.Group>
-              <Form.Group as={Col} md="4">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="block_no"
-                    value={block_no}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">Block no</label>
-                </Form.Floating>
-              </Form.Group>
-            </Row>
-            <Row>
-              <Form.Group as={Col} md="4">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="area"
-                    value={area}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">Area</label>
-                </Form.Floating>
-              </Form.Group>
-              <Form.Group as={Col} md="4">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="city"
-                    value={city}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">City</label>
-                </Form.Floating>
-              </Form.Group>
-              <Form.Group as={Col} md="4">
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="district"
-                    value={district}
-                    onChange={(e) => onChange(e)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">District</label>
-                </Form.Floating>
-              </Form.Group>
-            </Row>
-            <Form.Group>
-              <Form.Floating className="mb-2">
-                <Form.Control
-                  className=" rounded-3"
-                  type="text"
-                  placeholder="name"
-                  name="mobilePhone"
-                  value={mobilePhone}
-                  onChange={(e) => onChange(e)}
-                  required
-                />
-                <label htmlFor="floatingInputCustom">Mobile Phone</label>
-              </Form.Floating>
-            </Form.Group>
-
             <Form.Group>
               <Form.Floating className="mb-2">
                 <Form.Control
@@ -297,14 +150,6 @@ const Signup = ({ signup, isAuthenticated }) => {
                 />
                 <label htmlFor="floatingPasswordCustom">Confirm Password</label>
               </Form.Floating>
-            </Form.Group>
-            <Form.Group>
-              <Form.Check
-                type="switch"
-                value={is_worker}
-                onChange={handleOnChange}
-                label="Are you a worker?"
-              />
             </Form.Group>
             <Button
               variant="danger"

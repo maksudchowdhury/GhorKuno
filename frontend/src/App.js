@@ -1,11 +1,13 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
+import { connect } from "react-redux";
 
 import Home from "./containers/Home";
 import HomeWorker from "./containers/HomeWorker";
-import UserInfo from "./components/UserInfo";
+import UserInfo from "./components/Profile/UserInfoIndex";
 import NotFoundPage from "./containers/NotFoundPage";
+import RequireAuth from "./components/RequireAuth";
 
 import Login from "./containers/LogInAndSignUp/Login";
 import SignUp from "./containers/LogInAndSignUp/SignUp";
@@ -13,19 +15,20 @@ import Activate from "./containers/LogInAndSignUp/Activate";
 import ResetPassword from "./containers/LogInAndSignUp/ResetPassword";
 import ResetPasswordConfirm from "./containers/LogInAndSignUp/ResetPasswordConfirm";
 
+import ContactUs from "./containers/ContactUs";
+
 import Layout from "./hocs/Layout";
 
 import { Provider } from "react-redux";
 import store from "./store";
 
-const App = () => {
+const App = ({ isAuthenticated }) => {
   return (
     <Provider store={store}>
       <BrowserRouter>
         <Layout>
           <Routes>
             <Route path="*" element={<NotFoundPage />} />
-            <Route path="/home" element={<Home />} />
             // login signup
             <Route path="/" element={<Login />} />
             <Route path="/login" element={<Login />} />
@@ -36,7 +39,9 @@ const App = () => {
               element={<ResetPasswordConfirm />}
             />
             <Route path="/activate/:uid/:token" element={<Activate />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/user-info" element={<UserInfo />} />
+            <Route path="/contact-us" element={<ContactUs />} />
           </Routes>
         </Layout>
       </BrowserRouter>

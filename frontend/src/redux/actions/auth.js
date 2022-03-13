@@ -134,6 +134,7 @@ export const facebookAuthenticate = (state, code) => async (dispatch) => {
 };
 
 export const checkAuthenticated = () => async (dispatch) => {
+  //-----------------------------------------------------------#####################################################
   if (localStorage.getItem("access")) {
     const config = {
       headers: {
@@ -201,64 +202,36 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const signup =
-  (
-    first_name,
-    last_name,
-    email,
-    house_name,
-    road_no,
-    block_no,
-    area,
-    city,
-    district,
-    mobilePhone,
-    // profile_picture,
-    is_worker,
-    password,
-    re_password
-  ) =>
-  async (dispatch) => {
-    const config = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    const body = JSON.stringify({
-      first_name,
-      last_name,
-      email,
-      house_name,
-      road_no,
-      block_no,
-      area,
-      city,
-      district,
-      mobilePhone,
-      // profile_picture,
-      is_worker,
-      password,
-      re_password,
-    });
-
-    try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/users/`,
-        body,
-        config
-      );
-
-      dispatch({
-        type: SIGNUP_SUCCESS,
-        payload: res.data,
-      });
-    } catch (err) {
-      dispatch({
-        type: SIGNUP_FAIL,
-      });
-    }
+export const signup = (email, password, re_password) => async (dispatch) => {
+  const config = {
+    headers: {
+      "Content-Type": "application/json",
+    },
   };
+
+  const body = JSON.stringify({
+    email,
+    password,
+    re_password,
+  });
+
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/auth/users/`,
+      body,
+      config
+    );
+
+    dispatch({
+      type: SIGNUP_SUCCESS,
+      payload: res.data,
+    });
+  } catch (err) {
+    dispatch({
+      type: SIGNUP_FAIL,
+    });
+  }
+};
 
 export const verify = (uid, token) => async (dispatch) => {
   const config = {
