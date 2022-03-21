@@ -2,7 +2,11 @@ from rest_framework import serializers
 from rest_framework.authtoken.views import Token
 from accounts.serializers import UserProfileInfoSerializer
 from accounts.models import UserProfileInfo
-from .models import ContactUs, Shops
+from .models import ContactUs
+
+from django.contrib.auth.models import User
+from rest_framework import serializers
+from rest_framework.authtoken.views import Token
 
 
 class ContactUsSerializer(serializers.ModelSerializer):
@@ -10,15 +14,22 @@ class ContactUsSerializer(serializers.ModelSerializer):
         model = ContactUs
         fields = '__all__'
 
-    # def to_representation(self, instance):
-    #     self.fields['user_id'] = UserProfileInfo(read_only=True)
-    #     return super(ContactUsSerializer, self).to_representation(instance)
-    #     user = serializers.PrimaryKeyRelatedField(queryset=UserProfileInfo.objects.all(), many=False)
+
+from .models import User,Shop,Item
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
 
 
 class ShopSerializer(serializers.ModelSerializer):
-    user_id = UserProfileInfoSerializer(many=False)
-
     class Meta:
-        model = Shops
+        model = Shop
+        fields = '__all__'
+
+
+class ItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
         fields = '__all__'
