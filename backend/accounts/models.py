@@ -31,6 +31,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_worker = models.BooleanField(default=False)
+    profile_picture = models.CharField(max_length=100, default="", null=True)
 
     objects = UserAccountManager()
 
