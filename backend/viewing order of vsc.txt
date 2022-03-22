@@ -1,2 +1,0 @@
-MASVU
-model>admin>serializer>view>urls
