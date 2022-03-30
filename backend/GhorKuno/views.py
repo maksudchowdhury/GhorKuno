@@ -8,48 +8,53 @@ from rest_framework import viewsets
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 
-from .models import ContactUs,User, Shop, Item, ItemReview, DeliveryBoy,Cart,Order,OrderHistory
-from .serializers import ContactUsSerializer,UserSerializer, ShopSerializer, ItemSerializer,ItemReviewSerializer,DeliveryBoySerializer,CartSerializer,OrderSerializer,OrderHistorySerializer \
-
 from urllib import response
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 
+from .models import ContactUs, ShopInfo, Item, ItemReview, DeliveryBoy, Cart, Order, OrderHistory
+from .serializers import ContactUsSerializer, ShopSerializer, ItemSerializer, ItemReviewSerializer, DeliveryBoySerializer, CartSerializer, OrderSerializer, OrderHistorySerializer
+
+
+# Create your views here.
 class ContactUsViewSet(viewsets.ModelViewSet):
     queryset = ContactUs.objects.all()
     serializer_class = ContactUsSerializer
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    lookup_field = 'emailAddr'
 
 class ShopViewSet(viewsets.ModelViewSet):
-    queryset = Shop.objects.all()
+    queryset = ShopInfo.objects.all()
     serializer_class = ShopSerializer
     lookup_field = 'shopName'
+    # lookup_fields = ('shopName', 'id')
+
 
 class ItemViewSet(viewsets.ModelViewSet):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
     lookup_field = 'itemName'
 
+
 class ItemReviewViewSet(viewsets.ModelViewSet):
     queryset = ItemReview.objects.all()
     serializer_class = ItemReviewSerializer
+
 
 class DeliveryBoyViewSet(viewsets.ModelViewSet):
     queryset = DeliveryBoy.objects.all()
     serializer_class = DeliveryBoySerializer
     lookup_field = 'phNo'
 
+
 class CartViewSet(viewsets.ModelViewSet):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
 
+
 class OrderViewSet(viewsets.ModelViewSet):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+
 
 class OrderHistoryViewSet(viewsets.ModelViewSet):
     queryset = OrderHistory.objects.all()

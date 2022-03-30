@@ -1,28 +1,24 @@
-from django.contrib.auth.models import User
-from rest_framework import serializers
-from rest_framework.authtoken.views import Token
 from rest_framework import serializers
 from rest_framework.authtoken.views import Token
 from accounts.serializers import UserProfileInfoSerializer
 from accounts.models import UserProfileInfo
-from .models import ContactUs
+from .models import ContactUs, ShopInfo, Item, ItemReview, DeliveryBoy, Cart, Order, OrderHistory
 
-from .models import User,Shop,Item,ItemReview,DeliveryBoy,Cart,Order,OrderHistory
 
 class ContactUsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContactUs
         fields = '__all__'
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
+    # def to_representation(self, instance):
+    #     self.fields['user_id'] = UserProfileInfo(read_only=True)
+    #     return super(ContactUsSerializer, self).to_representation(instance)
+    #     user = serializers.PrimaryKeyRelatedField(queryset=UserProfileInfo.objects.all(), many=False)
 
 
 class ShopSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Shop
+        model = ShopInfo
         fields = '__all__'
 
 
@@ -30,6 +26,7 @@ class ItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = Item
         fields = '__all__'
+
 
 class ItemReviewSerializer(serializers.ModelSerializer):
     class Meta:
@@ -48,6 +45,7 @@ class CartSerializer(serializers.ModelSerializer):
         model = Cart
         fields = '__all__'
 
+
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Order
@@ -58,5 +56,3 @@ class OrderHistorySerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderHistory
         fields = '__all__'
-
-

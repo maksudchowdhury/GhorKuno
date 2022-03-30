@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
+import GhorKuno
 from django.utils import timezone
 
 
@@ -31,7 +32,6 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_worker = models.BooleanField(default=False)
-    profile_picture = models.CharField(max_length=100, default="", null=True)
 
     objects = UserAccountManager()
 
@@ -48,6 +48,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
         super(UserAccount, self).save(force_insert, force_update, *args, **kwargs)
         if self.is_active == False:
             UserProfileInfo.objects.create(user_id=self.id)
+            GhorKuno.models.ShopInfo.objects.create(userID=self.id)
 
 
 # 'first_name', 'last_name', 'house_name', 'road_no', 'block_no', 'area', 'city', 'district', 'mobilePhone',
