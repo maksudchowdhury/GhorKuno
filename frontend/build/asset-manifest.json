@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.43c86f1c.css",
-    "main.js": "/static/js/main.94d74aed.js",
+    "main.js": "/static/js/main.35a02c36.js",
     "static/media/ghorkuno theme.png": "/static/media/ghorkuno theme.c7cb346085e1df33984f.png",
     "static/media/ghorKuno_Combined.png": "/static/media/ghorKuno_Combined.8dd92982a188a64e71b2.png",
     "static/media/ghorKuno_title.png": "/static/media/ghorKuno_title.694bea3bd819327f0d6e.png",
@@ -11,10 +11,10 @@
     "static/media/forgot password.svg": "/static/media/forgot password.0a3d031e4a5f7d2ed7b180e450c65129.svg",
     "index.html": "/index.html",
     "main.43c86f1c.css.map": "/static/css/main.43c86f1c.css.map",
-    "main.94d74aed.js.map": "/static/js/main.94d74aed.js.map"
+    "main.35a02c36.js.map": "/static/js/main.35a02c36.js.map"
   },
   "entrypoints": [
     "static/css/main.43c86f1c.css",
-    "static/js/main.94d74aed.js"
+    "static/js/main.35a02c36.js"
   ]
 }

@@ -84,4 +84,172 @@ export default class ApiService {
       config
     );
   }
+
+  // Item review
+  static InsertComment(userID, itemID, rating, comment) {
+    var formData = new FormData();
+    formData.append("userID", userID);
+    formData.append("itemID", itemID);
+    formData.append("rating", rating);
+    formData.append("comment", comment);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}/gk/review/`,
+      formData,
+      config
+    );
+  }
+
+  static UpdateComment(comment_id, userID, itemID, rating, comment) {
+    var formData = new FormData();
+    formData.append("userID", userID);
+    formData.append("itemID", itemID);
+    formData.append("rating", rating);
+    formData.append("comment", comment);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/review/${comment_id}/`,
+      formData,
+      config
+    );
+  }
+
+  static DeleteComment(comment_id) {
+    return fetch(`${process.env.REACT_APP_API_URL}/gk/review/${comment_id}/`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+    });
+  }
+
+  // MyShop
+  static UpdateShopInfo(
+    route_shopName,
+    shopName,
+    detailedAddr,
+    offerBDT,
+    offerPercentage,
+    offerTill
+  ) {
+    var formData = new FormData();
+    formData.append("shopName", shopName);
+    formData.append("detailedAddr", detailedAddr);
+    formData.append("offerBDT", offerBDT);
+    formData.append("offerTill", offerTill);
+    formData.append("offerPercentage", offerPercentage);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/shop/${route_shopName}/`,
+      formData,
+      config
+    );
+  }
+
+  // MyShop Items
+  static InsertMyShopItem(shopID, itemName, cost, itemDetail, itemImg) {
+    var formData = new FormData();
+    formData.append("shopID", shopID);
+    formData.append("itemName", itemName);
+    formData.append("cost", cost);
+    formData.append("itemDetail", itemDetail);
+    formData.append("itemImg", itemImg);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}/gk/item/`,
+      formData,
+      config
+    );
+  }
+
+  static UpdateMyShopItem(route_itemName, itemName, cost, itemDetail) {
+    var formData = new FormData();
+    formData.append("itemName", itemName);
+    formData.append("cost", cost);
+    formData.append("itemDetail", itemDetail);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/item/${route_itemName}/`,
+      formData,
+      config
+    );
+  }
+
+  static UpdateMyShopItemPic(route_itemName, itemImg) {
+    var formData = new FormData();
+    formData.append("itemImg", itemImg);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/item/${route_itemName}/`,
+      formData,
+      config
+    );
+  }
+
+  static DeleteMyShopItem(itemName) {
+    return fetch(`${process.env.REACT_APP_API_URL}/gk/item/${itemName}/`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+    });
+  }
 }

@@ -2,13 +2,29 @@ import React, { useState, useEffect } from "react";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ResetPassword from "../../containers/LogInAndSignUp/ResetPassword";
-import { Form, Container, Row, Col, Button, Figure } from "react-bootstrap";
+import { Form, Container, Row, Col, Figure } from "react-bootstrap";
 import useFetchGet from "../../hocs/useFetchGet";
 
 import UserInfo from "./UserInfo";
 import UserInfoForm from "./UserInfoForm";
 import UserProfilePicForm from "./UserProfilePicForm";
 import UserInfoProfilePic from "./UserInfoProfilePic";
+
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Avatar,
+  styled,
+  Rating,
+} from "@mui/material";
+
+import RestartAltRoundedIcon from "@mui/icons-material/RestartAltRounded";
 
 const UserInfoIndex = ({ isAuthenticated }) => {
   const [authUser, setAuthUser] = useState([]);
@@ -17,28 +33,6 @@ const UserInfoIndex = ({ isAuthenticated }) => {
   const [editUserInfo, setEditUserInfo] = useState(null);
   const [isUpdateBtn, setIsUpdateBtn] = useState(false);
   const [isUpdateBtn_ProfilePic, setIsUpdateBtn_ProfilePic] = useState(false);
-
-  // const [first_name, set_first_name] = useState("");
-  // const [last_name, set_last_name] = useState("");
-  // const [house_name , set_house_name ] = useState("");
-  // const [ road_no,set_road_no ] = useState("");
-  // const [ block_no,set_block_no ] = useState("");
-  // const [ area,set_area ] = useState("");
-  // const [ city,set_city ] = useState("");
-  // const [ district,set_district ] = useState("");
-  // const [ mobilePhone,set_mobilePhone ] = useState("");
-
-  const [formData, setFormData] = useState({
-    first_name: "",
-    last_name: "",
-    house_name: "",
-    road_no: "",
-    block_no: "",
-    area: "",
-    city: "",
-    district: "",
-    mobilePhone: "",
-  });
 
   const config = {
     headers: {
@@ -65,7 +59,6 @@ const UserInfoIndex = ({ isAuthenticated }) => {
   const [user] = userList.filter(
     (userData) => userData.user_id === authUser.id
   );
-  console.table(user);
 
   const editBtn = (new_user) => {
     setEditUserInfo(new_user);
@@ -113,24 +106,25 @@ const UserInfoIndex = ({ isAuthenticated }) => {
   return (
     <Container fluid>
       <Row>
+        <Col sm={1} />
         <Col
           className="p-4 rounded-3 text-center text-white fs-1 fw-bold "
           style={{
             background: "#FFBD2D",
           }}
         >
-          User Profile
+          Profile
         </Col>
+        <Col sm={1} />
       </Row>
       <br />
       <Row>
-        <Col sm={1} />
         <Col
-          sm={4}
-          className="shadow-lg rounded-3 text-center justify-content-center"
-          style={{
-            background: "#FFBD2D",
-          }}
+          sm={6}
+          className=" text-center justify-content-center"
+          // style={{
+          //   background: "#FFBD2D",
+          // }}
         >
           {user && user.profile_pic ? (
             <UserInfoProfilePic
@@ -153,7 +147,6 @@ const UserInfoIndex = ({ isAuthenticated }) => {
             </h1>
           )}
         </Col>
-        <Col sm={2} />
         <Col
           sm={4}
           className="shadow-lg p-4 rounded-3 text-white"
@@ -185,7 +178,6 @@ const UserInfoIndex = ({ isAuthenticated }) => {
             </div>
           )}
         </Col>
-        <Col sm={1} />
       </Row>
       <Row className="p-2">
         <Row>
@@ -211,14 +203,16 @@ const UserInfoIndex = ({ isAuthenticated }) => {
       </Row>
       <Row className="py-5 justify-content-center">
         <Button
-          className="btn-danger"
+          variant="contained"
+          size="large"
+          startIcon={<RestartAltRoundedIcon />}
           onClick={reset_password_btn_click}
           style={{
-            width: "50%",
-            height: "50%",
+            width: "30%",
+            background: "#dc3545",
           }}
         >
-          Reset your password here
+          Reset password
         </Button>
       </Row>
     </Container>

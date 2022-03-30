@@ -59,6 +59,11 @@ const NavBar = ({ logout, isAuthenticated }) => {
   const authNavLinks = () => (
     <Nav>
       <Nav.Item>
+        <NavLink style={navLinkStyle} className="px-2" to="/shops">
+          Kitchens
+        </NavLink>
+      </Nav.Item>
+      <Nav.Item>
         <NavLink style={navLinkStyle} className="px-2" to="/contact-us">
           ContactUs
         </NavLink>
@@ -70,9 +75,15 @@ const NavBar = ({ logout, isAuthenticated }) => {
           </NavLink>
         ) : (
           <NavLink style={navLinkStyle} className="px-2" to="/user-info">
-            UserInfo
+            Profile
           </NavLink>
         )}
+      </Nav.Item>
+
+      <Nav.Item>
+        <NavLink style={navLinkStyle} className="px-2" to="/myShop">
+          MyKitchen
+        </NavLink>
       </Nav.Item>
 
       <Nav.Item className="px-5">

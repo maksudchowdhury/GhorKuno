@@ -1,5 +1,22 @@
-import { Container, Row, Col, Figure, Button } from "react-bootstrap";
+import { Container, Row, Col, Figure } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Avatar,
+  styled,
+  Rating,
+} from "@mui/material";
+
+import { FavoriteIcon, FavoriteBorderIcon } from "@mui/icons-material";
+import UpdateOutlinedIcon from "@mui/icons-material/UpdateOutlined";
 
 export default function UserInfo(props) {
   const navigate = useNavigate();
@@ -40,16 +57,19 @@ export default function UserInfo(props) {
           {props.userInfo.createdTime[3]}
         </span>
       </Row>
-      <Row className="justify-content-center py-2">
-        <Col sm>
-          <Button
-            className="btn btn-danger "
-            onClick={() => editBtn(props.userInfo)}
-            style={{ display: "flex", justifyContent: "center" }}
-          >
-            Want to update your info?
-          </Button>
-        </Col>
+      <Row className="justify-content-center py-3">
+        <Button
+          variant="contained"
+          size="large"
+          startIcon={<UpdateOutlinedIcon />}
+          onClick={() => editBtn(props.userInfo)}
+          style={{
+            width: "60%",
+            background: "#dc3545",
+          }}
+        >
+          Update Information
+        </Button>
       </Row>
     </>
   );

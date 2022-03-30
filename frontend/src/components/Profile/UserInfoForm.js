@@ -1,6 +1,21 @@
 import React, { useEffect, useState } from "react";
 import ApiService from "../../ApiService";
-import { Container, Row, Col, Figure, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Figure, Form } from "react-bootstrap";
+
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Avatar,
+  styled,
+  Rating,
+} from "@mui/material";
+import UpdateOutlinedIcon from "@mui/icons-material/UpdateOutlined";
 
 export default function UserInfoForm(props) {
   const [first_name, set_first_name] = useState(props.userInfo.first_name);
@@ -200,11 +215,15 @@ export default function UserInfoForm(props) {
               </Form.Group>
 
               <Button
-                variant="danger"
+                variant="outlined"
+                size="large"
+                color="error"
+                startIcon={<UpdateOutlinedIcon />}
                 type="submit"
                 className=" rounded-3 text-white fw-bold fs-4"
                 style={{
                   width: "100%",
+                  background: "#dc3545",
                 }}
               >
                 Update

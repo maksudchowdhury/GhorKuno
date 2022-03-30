@@ -1,7 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Container, Form, Button } from "react-bootstrap";
+import { Row, Col, Container, Form } from "react-bootstrap";
 import ApiService from "../ApiService";
 import useUserInfo from "../hocs/useUserInfo";
+
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
 
 export default function ContactUs() {
   const [user] = useUserInfo();
@@ -29,13 +41,14 @@ export default function ContactUs() {
   const onSubmit = (e) => {
     handleSubmit(e);
     e.preventDefault();
-    ApiService.Insert_ContactUs(user.user_id, name, subject, desc)
-      .then(setNull())
-      .then(
-        alert(
-          "You have successfully submitted the form.\n\nWe will contact you latter."
-        )
-      );
+    ApiService.Insert_ContactUs(user.user_id, name, subject, desc).then(
+      setNull()
+    );
+    // .then(
+    //   alert(
+    //     "You have successfully submitted the form.\n\nWe will contact you latter."
+    //   )
+    // );
   };
 
   return (
@@ -63,7 +76,7 @@ export default function ContactUs() {
               sm
               className="shadow-lg rounded-3 text-white p-2 fs-4"
               style={{
-                background: "red",
+                background: "#dc3545",
               }}
             >
               Md. Shahadat Anik Sheikh
@@ -81,12 +94,12 @@ export default function ContactUs() {
               sm
               className="shadow-lg rounded-3 text-white p-2 fs-4"
               style={{
-                background: "red",
+                background: "#dc3545",
               }}
             >
-              Ajmiri Afrin Priniya
+              Maksudul Haque Chowdhury
               <br />
-              Student Id: 2019-1-60-061
+              Student Id: 2019-1-60-182
               <br />
               East West University
             </Col>
@@ -99,12 +112,12 @@ export default function ContactUs() {
               sm
               className="shadow-lg rounded-3 text-white p-2 fs-4"
               style={{
-                background: "red",
+                background: "#dc3545",
               }}
             >
-              AKM Sadat
+              Sumit Shuvro Mistry
               <br />
-              Student Id: 2018-2-60-127
+              Student Id: 2019-1-60-028
               <br />
               East West University
             </Col>
@@ -175,11 +188,13 @@ export default function ContactUs() {
               </Form.Group>
 
               <Button
-                variant="danger"
+                size="large"
+                endIcon={<SendRoundedIcon />}
                 type="submit"
                 className=" rounded-3 text-white fw-bold fs-4"
                 style={{
                   width: "100%",
+                  background: "#dc3545",
                 }}
               >
                 Sent
