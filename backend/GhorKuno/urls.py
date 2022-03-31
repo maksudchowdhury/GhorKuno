@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
@@ -17,7 +16,7 @@ router.register('cart', CartViewSet, basename='cart')
 router.register('order', OrderViewSet, basename='order')
 router.register('orderHistory', OrderHistoryViewSet, basename='orderHistory')
 urlpatterns = [
-    path('gk/', include(router.urls),name='gkrouter'),
+    path('gk/', include(router.urls)),
 
 ]
 

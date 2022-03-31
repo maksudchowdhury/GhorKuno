@@ -59,6 +59,3 @@ class OrderViewSet(viewsets.ModelViewSet):
 class OrderHistoryViewSet(viewsets.ModelViewSet):
     queryset = OrderHistory.objects.all()
     serializer_class = OrderHistorySerializer
-
-
-    
