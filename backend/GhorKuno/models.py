@@ -28,7 +28,7 @@ class ShopInfo(models.Model):
     timeStampCreated = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['shopName']
+        ordering = ['offerTill']
 
     def __str__(self):
         return self.shopName or ''
@@ -90,7 +90,7 @@ class DeliveryBoy(models.Model):
 class Cart(models.Model):
     userID = models.IntegerField(default=-1, null=False)
     itemID = models.IntegerField(default=-1, null=False)
-    quantity = models.IntegerField(default=0, null=True)
+    quantity = models.IntegerField(default=1, blank=True, null=True)
 
     timeStampUpdated = models.DateTimeField(auto_now=True)
     timeStampCreated = models.DateTimeField(auto_now_add=True)
@@ -98,29 +98,21 @@ class Cart(models.Model):
     class Meta:
         ordering = ['id']
 
-    def __str__(self):
-        return self.userID or ''
-
 
 class Order(models.Model):
     userID = models.IntegerField(default=-1, null=False)
-    cartID = models.IntegerField(default=-1, null=False)
-    deliveryboyID = models.IntegerField(default=-1, null=False)
-    deliveryCost = models.FloatField(max_length=10, default=0, null=False)
+    itemID = models.IntegerField(default=-1, null=False)
+    quantity = models.IntegerField(default=1, blank=True, null=True)
     totalCost = models.FloatField(max_length=10, default=0, null=False)
-    remark = models.CharField(max_length=300, default="", null=False)
-    dropLocation = models.CharField(max_length=300, default="", null=False)
-    orderTime = models.CharField(max_length=100, default="", null=False)
-    deliveryStatus = models.CharField(max_length=100, default="", null=False)
+    deliveryStatusWorker = models.BooleanField(default=False, null=False)
+    deliveryStatusUser = models.BooleanField(default=False, null=False)
+    deliveryStatusDeliveryboy = models.BooleanField(default=False, null=False)
 
     timeStampUpdated = models.DateTimeField(auto_now=True)
     timeStampCreated = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['orderTime']
-
-    def __str__(self):
-        return self.userID or ''
+        ordering = ['-timeStampUpdated']
 
 
 class OrderHistory(models.Model):
