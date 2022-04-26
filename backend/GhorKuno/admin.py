@@ -12,7 +12,7 @@ class ShopOfferModel(admin.ModelAdmin):
 @admin.register(ShopInfo)
 class ShopModel(admin.ModelAdmin):
     list_filter = ('id', 'shopName', 'detailedAddr')
-    list_display = ('id', 'userID', 'shopName', 'review', 'isBanned', 'detailedAddr')
+    list_display = ('id', 'userID', 'shopName', 'review', 'isBanned', 'detailedAddr', 'offerBDT', 'offerPercentage', 'offerTill')
 
 
 @admin.register(Item)
@@ -41,8 +41,8 @@ class CartModel(admin.ModelAdmin):
 
 @admin.register(Order)
 class OrderModel(admin.ModelAdmin):
-    list_filter = ('id', 'userID', 'cartID')
-    list_display = ('id', 'userID', 'cartID', 'deliveryboyID', 'deliveryCost','totalCost','remark','dropLocation','orderTime','deliveryStatus')
+    list_filter = ('id', 'userID',)
+    list_display = ('id', 'userID', 'itemID', 'quantity', 'totalCost', 'deliveryStatusWorker', 'deliveryStatusDeliveryboy', 'deliveryStatusUser', 'timeStampCreated','timeStampUpdated' )
 
 
 @admin.register(OrderHistory)
