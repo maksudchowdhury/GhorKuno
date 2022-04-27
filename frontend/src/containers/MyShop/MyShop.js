@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Container, Row, Col, Figure } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
-
+import InfoIcon from "@mui/icons-material/Info";
+import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import MyShopForm from "./MyShopForm";
 import MyShopItems from "./MyShopItems";
+import MyShopOrder from "./MyShopOrder";
+
+import Animation from "../../components/Animation";
 
 import {
   Button,
@@ -110,7 +114,7 @@ export default function MyShop({ isAuthenticated, user }) {
               <Col
                 className="p-4 rounded-3 text-center text-white fs-1 fw-bold "
                 style={{
-                  background: "#FFBD2D",
+                  background: "#dc3545",
                 }}
               >
                 {myShop.shopName === "" ? (
@@ -121,128 +125,152 @@ export default function MyShop({ isAuthenticated, user }) {
               </Col>
               <Col sm={1} />
             </Row>
-            <br />
-            <Row>
-              <Col sm={1} />
-              <Col
-                sm
-                className="p-4  text-white "
-                // style={{
-                //   background: "#FFBD2D",
-                // }}
-              >
-                {myShop.shopName === "" ? (
-                  <MyShopForm
-                    shopInfo={myShop}
-                    editBtn={editBtn}
-                    userInfoForm={userInfoForm}
-                    updatedInformation={updatedInformation}
-                  />
-                ) : (
-                  <Row>
-                    <Col
-                      sm
-                      className="p-4 shadow-lg rounded-3 fs-2"
-                      style={{
-                        background: "#FFBD2D",
-                      }}
-                    >
-                      <Row
-                        style={{
-                          background: "#dc3545",
-                        }}
-                        className="justify-content-center p-4 shadow-lg rounded-3 fs-2 mx-5 fw-bold my-3"
-                      >
-                        Kitchen Information
-                      </Row>
-                      <Row className="fs-2 mx-5 fw-bold my-3">
-                        Name: {myShop.shopName}
-                        <br />
-                        Location: {myShop.detailedAddr}
-                      </Row>
-                    </Col>
-                    <Col sm={1} />
-
-                    <Col
-                      sm
-                      className="p-4 shadow-lg rounded-3 fs-2"
-                      style={{
-                        background: "#FFBD2D",
-                      }}
-                    >
-                      <Row
-                        style={{
-                          background: "#dc3545",
-                        }}
-                        className="justify-content-center p-4 shadow-lg rounded-3 fs-2 mx-5 fw-bold my-3"
-                      >
-                        Offers
-                      </Row>
-                      <Row className="fs-2 mx-5 fw-bold my-3">
-                        BDT: {myShop.offerBDT}
-                        <br />
-                        Percentage: {myShop.offerPercentage}
-                        <br />
-                        Till: {myShop.offerTill}
-                      </Row>
-                    </Col>
-                    <br />
-                    <Row className="justify-content-center my-3">
-                      <Button
-                        className="fs-4"
-                        variant="contained"
-                        size="large"
-                        color="error"
-                        startIcon={<UpdateOutlinedIcon />}
-                        onClick={() => setIsUpdateBtn(true)}
-                        sx={{
-                          background: "#dc3545",
-                          width: "80%",
-                        }}
-                      >
-                        Update
-                      </Button>
-                    </Row>
-                  </Row>
-                )}
-              </Col>
-              <Col sm={1} />
-            </Row>
-            <br />
-            <Row className="p-2">
+            <Animation>
               <Row>
-                <Col sm>
-                  {isUpdateBtn ? (
+                <Col sm={1} />
+                <Col
+                  sm
+                  className="p-4  text-white "
+                  // style={{
+                  //   background: "#FFBD2D",
+                  // }}
+                >
+                  {myShop.shopName === "" ? (
                     <MyShopForm
                       shopInfo={myShop}
                       editBtn={editBtn}
                       userInfoForm={userInfoForm}
                       updatedInformation={updatedInformation}
                     />
-                  ) : null}
+                  ) : (
+                    <Row>
+                      <Col
+                        sm
+                        className="p-4 shadow-lg rounded-3 fs-2 my-3"
+                        style={{
+                          background: "#FFBD2D",
+                        }}
+                      >
+                        <Row
+                          style={{
+                            background: "#dc3545",
+                          }}
+                          className="justify-content-center p-4 shadow-lg rounded-3 fs-2 mx-5 fw-bold my-3"
+                        >
+                          Kitchen Information
+                        </Row>
+                        <Row className="fs-2 mx-5 fw-bold my-3">
+                          Name: {myShop.shopName}
+                          <br />
+                          Location: {myShop.detailedAddr}
+                        </Row>
+                      </Col>
+                      <Col sm={1} />
+
+                      <Col
+                        sm
+                        className="p-4 shadow-lg rounded-3 fs-2 my-3"
+                        style={{
+                          background: "#FFBD2D",
+                        }}
+                      >
+                        <Row
+                          style={{
+                            background: "#dc3545",
+                          }}
+                          className="justify-content-center p-4 shadow-lg rounded-3 fs-2 mx-5 fw-bold my-3"
+                        >
+                          Offers
+                        </Row>
+                        <Row className="fs-2 mx-5 fw-bold my-3">
+                          BDT: {myShop.offerBDT}
+                          <br />
+                          Percentage: {myShop.offerPercentage}
+                          <br />
+                          Till: {myShop.offerTill}
+                        </Row>
+                      </Col>
+                      <Row>
+                        <Col
+                          sm
+                          className="p-3 rounded-3 text-center text-white text-wrap fs-1 fw-bold "
+                        >
+                          <Button
+                            className="text-white fw-bold fs-1 my-5"
+                            variant="contained"
+                            startIcon={
+                              <UpdateOutlinedIcon className="text-white fw-bold fs-1 " />
+                            }
+                            onClick={() => setIsUpdateBtn(true)}
+                            style={{
+                              background: "#F17228",
+                            }}
+                          >
+                            Update
+                          </Button>
+                        </Col>
+                      </Row>
+                    </Row>
+                  )}
                 </Col>
+                <Col sm={1} />
               </Row>
-            </Row>
-            {myShop.shopName === "" ? null : (
-              <>
+              <Row className="p-2">
                 <Row>
-                  <Col sm={1} />
-                  <Col
-                    className="p-4 rounded-3 text-center text-white fs-1 fw-bold "
-                    style={{
-                      background: "#FFBD2D",
-                    }}
-                  >
-                    Items
+                  <Col sm>
+                    {isUpdateBtn ? (
+                      <MyShopForm
+                        shopInfo={myShop}
+                        editBtn={editBtn}
+                        userInfoForm={userInfoForm}
+                        updatedInformation={updatedInformation}
+                      />
+                    ) : null}
                   </Col>
-                  <Col sm={1} />
                 </Row>
-                <br />
-                <Row className="p-2">
-                  {myShop.id ? <MyShopItems shop={myShop} /> : null}
-                </Row>
-              </>
-            )}
+              </Row>
+              {myShop.shopName === "" ? null : (
+                <>
+                  <Row>
+                    <Col sm={1} />
+                    <Col
+                      className="p-4 rounded-3 text-center text-white fs-1 fw-bold "
+                      style={{
+                        background: "#dc3545",
+                      }}
+                    >
+                      Kitchen Items
+                    </Col>
+                    <Col sm={1} />
+                  </Row>
+                  <br />
+                  <Row className="p-2">
+                    {myShop.id ? <MyShopItems shop={myShop} /> : null}
+                  </Row>
+                </>
+              )}
+
+              {myShop.shopName === "" ? null : (
+                <>
+                  <Row>
+                    <Col sm={1} />
+                    <Col
+                      className="p-4 rounded-3 text-center text-white fs-1 fw-bold "
+                      style={{
+                        background: "#dc3545",
+                      }}
+                    >
+                      Orders
+                    </Col>
+                    <Col sm={1} />
+                  </Row>
+                  <br />
+                  <Row className="p-2">
+                    {myShop.id ? <MyShopOrder shop={myShop} /> : null}
+                  </Row>
+                </>
+              )}
+            </Animation>
           </Container>
         ))}
     </>

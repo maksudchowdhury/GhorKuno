@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import ApiService from "../../ApiService";
 import axios from "axios";
 import ItemReviewUserInfo from "./ItemReviewUserInfo";
@@ -25,10 +25,10 @@ import {
 
 const StyledRating = styled(Rating)({
   "& .MuiRating-iconFilled": {
-    color: "#ff3d47",
+    color: "#FFBD2D",
   },
   "& .MuiRating-iconHover": {
-    color: "#ff6d75",
+    color: "#FFBD2D",
   },
 });
 
@@ -137,88 +137,100 @@ export default function ItemReview(props, { isAuthenticated }) {
   };
 
   return (
-    <div>
+    <Container fluid>
       <Row>
         <Col sm={2}></Col>
-        <Col
-          sm
-          className=" p-2"
-          // style={{
-          //   background: "#FFBD2D",
-          // }}
-        >
+        <Col sm>
           {itemReview
             .filter((sd) => sd.itemID === props.itemId)
             .map((sr) => {
               return (
                 <div key={sr.id}>
-                  <div>
-                    <Row
-                      className="shadow rounded-3 text-white p-3"
-                      style={{
-                        background: "#dc3545",
-                      }}
-                    >
-                      <p>
-                        {sr.userID ? <ItemReviewUserInfo user={sr} /> : null}
-                        <h4 className="my-4">{sr.comment}</h4>
-                        <span>
-                          <strong>Time: </strong> {sr.timeStampUpdated[11]}
-                          {sr.timeStampUpdated[12]}
-                          {sr.timeStampUpdated[13]}
-                          {sr.timeStampUpdated[14]}
-                          {sr.timeStampUpdated[15]} <strong> Date:</strong>{" "}
-                          {sr.timeStampUpdated[8]}
-                          {sr.timeStampUpdated[9]}
-                          {sr.timeStampUpdated[7]}
-                          {sr.timeStampUpdated[5]}
-                          {sr.timeStampUpdated[6]}
-                          {sr.timeStampUpdated[4]}
-                          {sr.timeStampUpdated[0]}
-                          {sr.timeStampUpdated[1]}
-                          {sr.timeStampUpdated[2]}
-                          {sr.timeStampUpdated[3]}
-                        </span>
-                        <br />
-                      </p>
-
+                  <Row
+                    className="shadow rounded-3 text-white p-3"
+                    style={{
+                      background: "#FFBD2D",
+                    }}
+                  >
+                    <p>
+                      {sr.userID ? <ItemReviewUserInfo user={sr} /> : null}
+                      <h4
+                        className="my-3 mx-2 fs-3"
+                        style={{
+                          color: "#dc3545",
+                        }}
+                      >
+                        {sr.comment}
+                      </h4>
+                      <span className="my-3 mx-2 fw-bold ">
+                        <strong
+                          style={{
+                            color: "#dc3545",
+                          }}
+                        >
+                          Time:{" "}
+                        </strong>{" "}
+                        {sr.timeStampUpdated[11]}
+                        {sr.timeStampUpdated[12]}
+                        {sr.timeStampUpdated[13]}
+                        {sr.timeStampUpdated[14]}
+                        {sr.timeStampUpdated[15]}{" "}
+                        <strong
+                          style={{
+                            color: "#dc3545",
+                          }}
+                        >
+                          {" "}
+                          Date:
+                        </strong>{" "}
+                        {sr.timeStampUpdated[8]}
+                        {sr.timeStampUpdated[9]}
+                        {sr.timeStampUpdated[7]}
+                        {sr.timeStampUpdated[5]}
+                        {sr.timeStampUpdated[6]}
+                        {sr.timeStampUpdated[4]}
+                        {sr.timeStampUpdated[0]}
+                        {sr.timeStampUpdated[1]}
+                        {sr.timeStampUpdated[2]}
+                        {sr.timeStampUpdated[3]}
+                      </span>
                       <br />
-                      {sr.userID === userID ? (
-                        <div>
-                          <Button
-                            variant="outlined"
-                            size="large"
-                            color="error"
-                            startIcon={<UpdateOutlinedIcon />}
-                            className="btn btn-danger mx-auto"
-                            onClick={() => updateBtn(sr)}
-                            style={{
-                              background: "#FFBD2D",
-                            }}
-                          >
-                            Update
-                          </Button>{" "}
-                          <Button
-                            variant="outlined"
-                            size="large"
-                            color="error"
-                            startIcon={<DeleteForeverOutlinedIcon />}
-                            onClick={() => deleteBtn(sr)}
-                            className="btn btn-danger mx-auto"
-                            style={{
-                              background: "#FFBD2D",
-                            }}
-                          >
-                            Delete
-                          </Button>
-                        </div>
-                      ) : null}
-                    </Row>
-                  </div>
-                  <Row>
+                    </p>
+
                     <br />
-                    <br />
+                    {sr.userID === userID ? (
+                      <div className="">
+                        <Button
+                          variant="outlined"
+                          size="large"
+                          color="error"
+                          startIcon={<UpdateOutlinedIcon />}
+                          className="text-white mx-2"
+                          onClick={() => updateBtn(sr)}
+                          style={{
+                            background: "#dc3545",
+                          }}
+                        >
+                          Update
+                        </Button>{" "}
+                        <Button
+                          variant="outlined"
+                          size="large"
+                          color="error"
+                          startIcon={<DeleteForeverOutlinedIcon />}
+                          onClick={() => deleteBtn(sr)}
+                          className="text-white"
+                          style={{
+                            background: "#dc3545",
+                          }}
+                        >
+                          Delete
+                        </Button>
+                      </div>
+                    ) : null}
                   </Row>
+
+                  <br />
                 </div>
               );
             })}
@@ -227,7 +239,7 @@ export default function ItemReview(props, { isAuthenticated }) {
             className="shadow-lg rounded-3 text-white p-3 my-2"
             style={{
               width: "100%",
-              background: "#FFBD2D",
+              background: "#dc3545",
             }}
           >
             <span className="fw-bold fs-2 mx-2">
@@ -273,7 +285,7 @@ export default function ItemReview(props, { isAuthenticated }) {
                   className="btn btn-lg text-white fs-4 fw-bold"
                   style={{
                     width: "100%",
-                    background: "#dc3545",
+                    background: "#FFBD2D",
                   }}
                 >
                   Update
@@ -290,7 +302,7 @@ export default function ItemReview(props, { isAuthenticated }) {
                   className="btn btn-lg text-white fs-4 fw-bold"
                   style={{
                     width: "100%",
-                    background: "#dc3545",
+                    background: "#FFBD2D",
                   }}
                 >
                   Post
@@ -301,6 +313,6 @@ export default function ItemReview(props, { isAuthenticated }) {
         </Col>
         <Col sm={2}></Col>
       </Row>
-    </div>
+    </Container>
   );
 }

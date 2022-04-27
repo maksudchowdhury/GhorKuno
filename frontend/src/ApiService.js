@@ -252,4 +252,146 @@ export default class ApiService {
       },
     });
   }
+
+  // Add to cart
+  static InsertAddToCart(userID, itemID, quantity) {
+    var formData = new FormData();
+    formData.append("userID", userID);
+    formData.append("itemID", itemID);
+    formData.append("quantity", quantity);
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}/gk/cart/`,
+      formData,
+      config
+    );
+  }
+
+  static DeleteCartItem(id) {
+    return fetch(`${process.env.REACT_APP_API_URL}/gk/cart/${id}/`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+    });
+  }
+
+  static UpdateItemQuantity(route_itemID, quantity) {
+    var formData = new FormData();
+    formData.append("quantity", quantity);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/cart/${route_itemID}/`,
+      formData,
+      config
+    );
+  }
+
+  // order
+  static InsertOrder(userID, itemID, quantity, totalCost) {
+    var formData = new FormData();
+    formData.append("userID", userID);
+    formData.append("itemID", itemID);
+    formData.append("quantity", quantity);
+    formData.append("totalCost", totalCost);
+    formData.append("deliveryStatusWorker", false);
+    formData.append("deliveryStatusUser", false);
+    formData.append("deliveryStatusDeliveryboy", false);
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.post(
+      `${process.env.REACT_APP_API_URL}/gk/order/`,
+      formData,
+      config
+    );
+  }
+
+  static UpdateStatusWorker(route_orderID) {
+    var formData = new FormData();
+    formData.append("deliveryStatusWorker", true);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/order/${route_orderID}/`,
+      formData,
+      config
+    );
+  }
+
+  static UpdateStatusUser(route_orderID) {
+    var formData = new FormData();
+    formData.append("deliveryStatusWorker", true);
+    formData.append("deliveryStatusDeliveryboy", true);
+    formData.append("deliveryStatusUser", true);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/order/${route_orderID}/`,
+      formData,
+      config
+    );
+  }
+
+  static UpdateStatusDeliveryboy(route_orderID) {
+    var formData = new FormData();
+    formData.append("deliveryStatusWorker", true);
+    formData.append("deliveryStatusDeliveryboy", true);
+
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data;application/json;",
+        Authorization: `JWT ${localStorage.getItem("access")}`,
+        Accept: "application/json",
+      },
+      body: formData,
+    };
+
+    return axios.put(
+      `${process.env.REACT_APP_API_URL}/gk/order/${route_orderID}/`,
+      formData,
+      config
+    );
+  }
 }

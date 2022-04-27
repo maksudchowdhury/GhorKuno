@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f83a3d39-898b-4f3e-9a22-a49cd8c1bd6d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../GhorKuno-1" beforeDir="false" afterPath="$PROJECT_DIR$/../GhorKuno-1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GhorKuno/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/GhorKuno/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GhorKuno/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/GhorKuno/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GhorKuno/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/GhorKuno/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/asset-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build/asset-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/build/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/css/main.43c86f1c.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/css/main.43c86f1c.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/js/main.35a02c36.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/js/main.35a02c36.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/js/main.35a02c36.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/build/static/media/ghorkuno theme.c7cb346085e1df33984f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/0.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/1.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/10.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/10.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/11.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/11.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/12.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/12.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/13.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/13.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/14.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/14.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/15.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/15.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/16.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/16.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/17.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/17.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/18.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/18.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/19.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/19.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/2.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/3.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/3.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/4.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/4.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/5.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/5.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/6.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/6.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/7.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/7.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/8.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/8.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/9.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/9.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack.old" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.cache/default-development/index.pack.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/ApiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/ApiService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/NavBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Profile/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Profile/UserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Profile/UserInfoIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Profile/UserInfoIndex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Profile/UserInfoProfilePic.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Profile/UserInfoProfilePic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/ContactUs.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/ContactUs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/Item/IndividualItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/Item/IndividualItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/Item/ItemReview.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/Item/ItemReview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/Item/ItemReviewUserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/Item/ItemReviewUserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/LogInAndSignUp/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/LogInAndSignUp/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/LogInAndSignUp/SignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/LogInAndSignUp/SignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/MyShop/MyShop.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/MyShop/MyShop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/MyShop/MyShopForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/MyShop/MyShopForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/MyShop/MyShopItemList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/MyShop/MyShopItemList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/Shop/IndividualShop.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/Shop/IndividualShop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/Shop/ShopItems.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/Shop/ShopItems.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/src/containers/Shop/ShopList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/containers/Shop/ShopList.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2518SXoeZqGiY6L85YBBzZvk3bB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f83a3d39-898b-4f3e-9a22-a49cd8c1bd6d" name="Changes" comment="" />
+      <created>1644683233548</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644683233548</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

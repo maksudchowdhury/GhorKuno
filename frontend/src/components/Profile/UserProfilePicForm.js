@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ApiService from "../../ApiService";
 import { Container, Row, Col, Figure, Form } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 import {
   Button,
@@ -48,7 +49,7 @@ export default function UserProfilePicForm(props) {
   return (
     <Container fluid>
       {props.userInfo ? (
-        <>
+        <motion.div animate={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
           <Row className="my-4">
             <Form
               noValidate
@@ -83,7 +84,7 @@ export default function UserProfilePicForm(props) {
               </Button>
             </Form>
           </Row>
-        </>
+        </motion.div>
       ) : null}
     </Container>
   );

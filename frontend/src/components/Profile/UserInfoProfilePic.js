@@ -1,4 +1,4 @@
-import { Container, Row, Col, Figure } from "react-bootstrap";
+import { Container, Row, Col, Figure, Image } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 
 import {
@@ -39,25 +39,31 @@ export default function UserInfoProfilePic(props) {
 
   return (
     <>
-      <Row className="justify-content-center">
-        <Avatar
+      <Row className="justify-content-center my-3">
+        {/* <Avatar
           alt="none"
           src={props.userInfo.profile_pic}
           sx={{ width: 280, height: 280 }}
+        /> */}
+        <Image
+          height={500}
+          width={30}
+          alt="none"
+          src={props.userInfo.profile_pic}
+          roundedCircle
+          className="p-4"
         />
-      </Row>
-      <Row className="justify-content-center py-2">
         <Button
           variant="contained"
           size="large"
           startIcon={<UpdateOutlinedIcon />}
           onClick={() => editBtn_ProfilePic(props.userInfo)}
           style={{
-            width: "40%",
+            width: "60%",
             background: "#dc3545",
           }}
         >
-          Update Profile Picture
+          Update Your Picture
         </Button>
       </Row>
     </>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ApiService from "../../ApiService";
 import { Container, Row, Col, Figure, Form } from "react-bootstrap";
+import { motion } from "framer-motion";
 
 import {
   Button,
@@ -73,163 +74,167 @@ export default function UserInfoForm(props) {
     <Container fluid>
       {props.userInfo ? (
         <>
-          <Row className="text-center">Update User Info Form</Row>
-          <Row className="mb-4">
-            <Form
-              noValidate
-              validated={validated}
-              onSubmit={(e) => onSubmit(e)}
-              // className="text-center mb-2"
+          <motion.div animate={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+            <Row
+              className="shadow-lg rounded-3 my-4 p-3"
+              style={{ background: "#FFBD2D" }}
             >
-              <Row>
-                <Form.Group as={Col} md="6">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="first_name"
-                      value={first_name}
-                      onChange={(e) => set_first_name(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">First Name</label>
-                  </Form.Floating>
-                </Form.Group>
-                <Form.Group as={Col} md="6">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="last_name"
-                      value={last_name}
-                      onChange={(e) => set_last_name(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">Last Name</label>
-                  </Form.Floating>
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group as={Col} md="4">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="house_name"
-                      value={house_name}
-                      onChange={(e) => set_house_name(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">House name</label>
-                  </Form.Floating>
-                </Form.Group>
-                <Form.Group as={Col} md="4">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="road_no"
-                      value={road_no}
-                      onChange={(e) => set_road_no(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">Road no</label>
-                  </Form.Floating>
-                </Form.Group>
-                <Form.Group as={Col} md="4">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="block_no"
-                      value={block_no}
-                      onChange={(e) => set_block_no(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">Block no</label>
-                  </Form.Floating>
-                </Form.Group>
-              </Row>
-              <Row>
-                <Form.Group as={Col} md="4">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="area"
-                      value={area}
-                      onChange={(e) => set_area(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">Area</label>
-                  </Form.Floating>
-                </Form.Group>
-                <Form.Group as={Col} md="4">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="city"
-                      value={city}
-                      onChange={(e) => set_city(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">City</label>
-                  </Form.Floating>
-                </Form.Group>
-                <Form.Group as={Col} md="4">
-                  <Form.Floating className="mb-2">
-                    <Form.Control
-                      className=" rounded-3"
-                      type="text"
-                      placeholder="name"
-                      name="district"
-                      value={district}
-                      onChange={(e) => set_district(e.target.value)}
-                      required
-                    />
-                    <label htmlFor="floatingInputCustom">District</label>
-                  </Form.Floating>
-                </Form.Group>
-              </Row>
-              <Form.Group>
-                <Form.Floating className="mb-2">
-                  <Form.Control
-                    className=" rounded-3"
-                    type="text"
-                    placeholder="name"
-                    name="mobilePhone"
-                    value={mobilePhone}
-                    onChange={(e) => set_mobilePhone(e.target.value)}
-                    required
-                  />
-                  <label htmlFor="floatingInputCustom">Mobile Phone</label>
-                </Form.Floating>
-              </Form.Group>
-
-              <Button
-                variant="outlined"
-                size="large"
-                color="error"
-                startIcon={<UpdateOutlinedIcon />}
-                type="submit"
-                className=" rounded-3 text-white fw-bold fs-4"
-                style={{
-                  width: "100%",
-                  background: "#dc3545",
-                }}
+              <Form
+                noValidate
+                validated={validated}
+                onSubmit={(e) => onSubmit(e)}
+                // className="text-center mb-2"
               >
-                Update
-              </Button>
-            </Form>
-          </Row>
+                <Row>
+                  <Form.Group as={Col} md="6">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="first_name"
+                        value={first_name}
+                        onChange={(e) => set_first_name(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">First Name</label>
+                    </Form.Floating>
+                  </Form.Group>
+                  <Form.Group as={Col} md="6">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="last_name"
+                        value={last_name}
+                        onChange={(e) => set_last_name(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">Last Name</label>
+                    </Form.Floating>
+                  </Form.Group>
+                </Row>
+                <Row>
+                  <Form.Group as={Col} md="4">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="house_name"
+                        value={house_name}
+                        onChange={(e) => set_house_name(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">House name</label>
+                    </Form.Floating>
+                  </Form.Group>
+                  <Form.Group as={Col} md="4">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="road_no"
+                        value={road_no}
+                        onChange={(e) => set_road_no(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">Road no</label>
+                    </Form.Floating>
+                  </Form.Group>
+                  <Form.Group as={Col} md="4">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="block_no"
+                        value={block_no}
+                        onChange={(e) => set_block_no(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">Block no</label>
+                    </Form.Floating>
+                  </Form.Group>
+                </Row>
+                <Row>
+                  <Form.Group as={Col} md="4">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="area"
+                        value={area}
+                        onChange={(e) => set_area(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">Area</label>
+                    </Form.Floating>
+                  </Form.Group>
+                  <Form.Group as={Col} md="4">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="city"
+                        value={city}
+                        onChange={(e) => set_city(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">City</label>
+                    </Form.Floating>
+                  </Form.Group>
+                  <Form.Group as={Col} md="4">
+                    <Form.Floating className="mb-2">
+                      <Form.Control
+                        className=" rounded-3"
+                        type="text"
+                        placeholder="name"
+                        name="district"
+                        value={district}
+                        onChange={(e) => set_district(e.target.value)}
+                        required
+                      />
+                      <label htmlFor="floatingInputCustom">District</label>
+                    </Form.Floating>
+                  </Form.Group>
+                </Row>
+                <Form.Group>
+                  <Form.Floating className="mb-2">
+                    <Form.Control
+                      className=" rounded-3"
+                      type="text"
+                      placeholder="name"
+                      name="mobilePhone"
+                      value={mobilePhone}
+                      onChange={(e) => set_mobilePhone(e.target.value)}
+                      required
+                    />
+                    <label htmlFor="floatingInputCustom">Mobile Phone</label>
+                  </Form.Floating>
+                </Form.Group>
+
+                <Button
+                  variant="outlined"
+                  size="large"
+                  color="error"
+                  startIcon={<UpdateOutlinedIcon />}
+                  type="submit"
+                  className=" rounded-3 text-white fw-bold fs-4"
+                  style={{
+                    width: "100%",
+                    background: "#dc3545",
+                  }}
+                >
+                  Update
+                </Button>
+              </Form>
+            </Row>
+          </motion.div>
         </>
       ) : null}
     </Container>

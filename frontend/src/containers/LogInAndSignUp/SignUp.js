@@ -163,15 +163,12 @@ const Signup = ({ signup, isAuthenticated }) => {
               Sign Up
             </Button>
           </Form>
-          <Row>
-            <br />
-          </Row>
-          <Col sm>
+          <Col sm className="my-4">
             <Link to="/login" className="text-decoration-none">
               <Button
                 variant="warning"
                 type="submit"
-                className=" rounded-3 text-black fw-bold fs-5"
+                className=" rounded-3 text-white fw-bold fs-5"
                 style={{
                   width: "100%",
                 }}

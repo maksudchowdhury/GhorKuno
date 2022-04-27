@@ -41,35 +41,33 @@ export default function UserInfo(props) {
           <br />
           Mobile Phone: {props.userInfo.mobilePhone}
           <br />
+          <span>
+            Joined: {props.userInfo.createdTime[8]}
+            {props.userInfo.createdTime[9]}
+            {props.userInfo.createdTime[7]}
+            {props.userInfo.createdTime[5]}
+            {props.userInfo.createdTime[6]}
+            {props.userInfo.createdTime[4]}
+            {props.userInfo.createdTime[0]}
+            {props.userInfo.createdTime[1]}
+            {props.userInfo.createdTime[2]}
+            {props.userInfo.createdTime[3]}
+          </span>
+          <br />
+          <br />
+          <Button
+            variant="contained"
+            size="large"
+            startIcon={<UpdateOutlinedIcon />}
+            onClick={() => editBtn(props.userInfo)}
+            style={{
+              width: "60%",
+              background: "#dc3545",
+            }}
+          >
+            Update Information
+          </Button>
         </Col>
-      </Row>
-      <Row>
-        <span className="text-white fw-bold fs-3">
-          Joined: {props.userInfo.createdTime[8]}
-          {props.userInfo.createdTime[9]}
-          {props.userInfo.createdTime[7]}
-          {props.userInfo.createdTime[5]}
-          {props.userInfo.createdTime[6]}
-          {props.userInfo.createdTime[4]}
-          {props.userInfo.createdTime[0]}
-          {props.userInfo.createdTime[1]}
-          {props.userInfo.createdTime[2]}
-          {props.userInfo.createdTime[3]}
-        </span>
-      </Row>
-      <Row className="justify-content-center py-3">
-        <Button
-          variant="contained"
-          size="large"
-          startIcon={<UpdateOutlinedIcon />}
-          onClick={() => editBtn(props.userInfo)}
-          style={{
-            width: "60%",
-            background: "#dc3545",
-          }}
-        >
-          Update Information
-        </Button>
       </Row>
     </>
   );

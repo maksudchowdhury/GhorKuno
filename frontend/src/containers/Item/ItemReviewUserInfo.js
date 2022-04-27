@@ -9,10 +9,10 @@ import Avatar from "@mui/material/Avatar";
 
 const StyledRating = styled(Rating)({
   "& .MuiRating-iconFilled": {
-    color: "#FFBD2D",
+    color: "#dc3545",
   },
   "& .MuiRating-iconHover": {
-    color: "#FFBD2D",
+    color: "#dc3545",
   },
 });
 
@@ -41,7 +41,7 @@ export default function ItemReviewUserInfo(props) {
           sx={{ width: 56, height: 56 }}
         />
       </Col>
-      <Col sm className="text-uppercase fs-2">
+      <Col sm className="fs-2 fw-bold">
         {userInfo.first_name} {userInfo.last_name}{" "}
       </Col>
       <Col sm={3} className="text-uppercase fs-2">

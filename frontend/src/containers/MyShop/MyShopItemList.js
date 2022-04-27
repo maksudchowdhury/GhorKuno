@@ -1,5 +1,6 @@
 import React from "react";
 import ApiService from "../../ApiService";
+import FastfoodIcon from "@mui/icons-material/Fastfood";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import UpdateOutlinedIcon from "@mui/icons-material/UpdateOutlined";
@@ -13,6 +14,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
+import ButtonGroup from "@mui/material/ButtonGroup";
 
 import Rating from "@mui/material/Rating";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -60,12 +62,12 @@ function MyShopItemList(props) {
           //     background: "#dc3545",
           //   }}
         >
-          <Grid container spacing={3}>
+          <Grid container spacing={2}>
             {props.items &&
               props.items
                 .filter((it) => it.shopID === props.shop.id)
                 .map((row) => (
-                  <Grid item xs={6} key={row.id}>
+                  <Grid item xs={12} sm={6} key={row.id}>
                     <Card className="text-center">
                       <CardActionArea
                         onClick={() =>
@@ -80,12 +82,22 @@ function MyShopItemList(props) {
                           image={row.itemImg}
                           alt={row.itemName}
                         />
-                        <CardContent>
-                          <Typography gutterBottom variant="h5" component="div">
+                        <CardContent style={{ color: "#F17228" }}>
+                          <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            className="fw-bold mb-2"
+                          >
+                            <FastfoodIcon size="large" className="fs-4" />{" "}
                             {row.itemName}
                           </Typography>
-                          <Typography gutterBottom>
-                            {row.accumulatedRating > -2 ? (
+
+                          <Typography variant="h6" className="fw-bold mb-2">
+                            ৳ {row.cost}
+                          </Typography>
+                          <Typography>
+                            {row.accumulatedRating ? (
                               <span className="fw-bold">
                                 <StyledRating
                                   value={row.accumulatedRating}
@@ -102,48 +114,33 @@ function MyShopItemList(props) {
                               </span>
                             ) : null}
                           </Typography>
-                          <Typography variant="h6" color="text.primary">
-                            {row.cost} BDT
-                          </Typography>
                         </CardContent>
                       </CardActionArea>
-                      <CardActions className=" m-2 justify-content-center">
-                        <Button
-                          onClick={() => editBtn(row)}
+                      <CardActions className="justify-content-center m-2 ">
+                        <ButtonGroup
                           variant="contained"
                           size="large"
                           color="error"
-                          startIcon={<UpdateOutlinedIcon />}
-                          style={{
-                            background: "#dc3545",
-                          }}
                         >
-                          Update Info
-                        </Button>
-                        <Button
-                          onClick={() => editBtnPic(row)}
-                          variant="contained"
-                          size="large"
-                          color="error"
-                          startIcon={<AddPhotoAlternateIcon />}
-                          style={{
-                            background: "#dc3545",
-                          }}
-                        >
-                          Update Image
-                        </Button>
-                        <Button
-                          variant="contained"
-                          size="large"
-                          color="error"
-                          startIcon={<DeleteForeverOutlinedIcon />}
-                          onClick={() => deleteBtn(row)}
-                          style={{
-                            background: "#dc3545",
-                          }}
-                        >
-                          Delete
-                        </Button>
+                          <Button
+                            onClick={() => editBtn(row)}
+                            startIcon={<UpdateOutlinedIcon />}
+                          >
+                            Update Info
+                          </Button>
+                          <Button
+                            onClick={() => editBtnPic(row)}
+                            startIcon={<AddPhotoAlternateIcon />}
+                          >
+                            Update Image
+                          </Button>
+                          <Button
+                            startIcon={<DeleteForeverOutlinedIcon />}
+                            onClick={() => deleteBtn(row)}
+                          >
+                            Delete
+                          </Button>
+                        </ButtonGroup>
                       </CardActions>
                     </Card>
                   </Grid>
@@ -159,14 +156,15 @@ function MyShopItemList(props) {
           className="p-3 rounded-3 text-center text-white text-wrap fs-1 fw-bold "
         >
           <Button
-            className="text-white fw-bold fs-4 my-5"
+            className="text-white fw-bold fs-1 my-5"
             variant="outlined"
             size="large"
             color="error"
-            startIcon={<AddCircleOutlineOutlinedIcon />}
+            startIcon={
+              <AddCircleOutlineOutlinedIcon className="text-white fw-bold fs-1 " />
+            }
             style={{
-              width: "100%",
-              background: "#dc3545",
+              background: "#F17228",
             }}
             onClick={shopForm}
           >
