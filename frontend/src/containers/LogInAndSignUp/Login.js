@@ -212,15 +212,12 @@ const Login = ({ login, isAuthenticated }) => {
             </Form>
           </Row>
           <Row>
-            <br />
-          </Row>
-          <Row>
             <Col sm={6}>
               <Link to="/signup" className="text-decoration-none">
                 <Button
                   variant="warning"
                   type="submit"
-                  className=" rounded-3 text-black fw-bold fs-5"
+                  className=" rounded-3 text-white fw-bold fs-5 my-2"
                   style={{
                     width: "100%",
                   }}
@@ -234,7 +231,7 @@ const Login = ({ login, isAuthenticated }) => {
                 <Button
                   variant="danger"
                   type="submit"
-                  className=" rounded-3 text-white fw-bold fs-5"
+                  className=" rounded-3 text-white fw-bold fs-5 my-2"
                   style={{
                     width: "100%",
                   }}

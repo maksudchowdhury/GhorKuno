@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { connect } from "react-redux";
 
-import Home from "./containers/Home";
+import Home from "./containers/Home/Home";
 import HomeWorker from "./containers/HomeWorker";
 import UserInfo from "./components/Profile/UserInfoIndex";
 import NotFoundPage from "./containers/NotFoundPage";
@@ -15,7 +15,16 @@ import Activate from "./containers/LogInAndSignUp/Activate";
 import ResetPassword from "./containers/LogInAndSignUp/ResetPassword";
 import ResetPasswordConfirm from "./containers/LogInAndSignUp/ResetPasswordConfirm";
 
+import ShopList from "./containers/Shop/ShopList";
+import IndividualShop from "./containers/Shop/IndividualShop";
+import MyShop from "./containers/MyShop/MyShop";
+
+import IndividualItem from "./containers/Item/IndividualItem";
 import ContactUs from "./containers/ContactUs";
+
+import Cart from "./containers/Cart/Cart";
+
+import SlideItemCard from "./components/SlideItemCard";
 
 import Layout from "./hocs/Layout";
 
@@ -42,6 +51,17 @@ const App = ({ isAuthenticated }) => {
             <Route path="/home" element={<Home />} />
             <Route path="/user-info" element={<UserInfo />} />
             <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/shops" element={<ShopList />} />
+            <Route path="/shop/:placeName" element={<ShopList />} />
+            <Route path="/shops/:shopName" element={<IndividualShop />} />
+            <Route
+              path="/shops/:shopName/:itemName"
+              element={<IndividualItem />}
+            />
+            <Route path="/item/:itemName" element={<IndividualItem />} />
+            <Route path="/myShop" element={<MyShop />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/SlideItemCard" element={<SlideItemCard />} />
           </Routes>
         </Layout>
       </BrowserRouter>

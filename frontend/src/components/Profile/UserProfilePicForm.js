@@ -1,9 +1,25 @@
 import React, { useEffect, useState } from "react";
 import ApiService from "../../ApiService";
-import { Container, Row, Col, Figure, Form, Button } from "react-bootstrap";
+import { Container, Row, Col, Figure, Form } from "react-bootstrap";
+import { motion } from "framer-motion";
+
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Avatar,
+  styled,
+  Rating,
+} from "@mui/material";
+import UpdateOutlinedIcon from "@mui/icons-material/UpdateOutlined";
 
 export default function UserProfilePicForm(props) {
-  const [profile_pic, set_profile_pic] = useState(props.userInfo.mobilePhone);
+  const [profile_pic, set_profile_pic] = useState(props.userInfo.profile_pic);
 
   useEffect(() => {
     set_profile_pic(props.userInfo.profile_pic);
@@ -33,9 +49,8 @@ export default function UserProfilePicForm(props) {
   return (
     <Container fluid>
       {props.userInfo ? (
-        <>
-          <Row className="text-center">Update User Info Form</Row>
-          <Row className="mb-4">
+        <motion.div animate={{ scale: 1.1 }} transition={{ duration: 0.5 }}>
+          <Row className="my-4">
             <Form
               noValidate
               validated={validated}
@@ -50,23 +65,26 @@ export default function UserProfilePicForm(props) {
                     onChange={(e) => set_profile_pic(e.target.files[0])}
                     required
                   />
-                  <label htmlFor="floatingInputCustom">profile_pic</label>
                 </Form.Floating>
               </Form.Group>
 
               <Button
-                variant="danger"
+                variant="outlined"
+                size="large"
+                color="error"
+                startIcon={<UpdateOutlinedIcon />}
                 type="submit"
                 className=" rounded-3 text-white fw-bold fs-4"
                 style={{
                   width: "100%",
+                  background: "#dc3545",
                 }}
               >
                 Update
               </Button>
             </Form>
           </Row>
-        </>
+        </motion.div>
       ) : null}
     </Container>
   );

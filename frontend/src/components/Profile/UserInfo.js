@@ -1,5 +1,22 @@
-import { Container, Row, Col, Figure, Button } from "react-bootstrap";
+import { Container, Row, Col, Figure } from "react-bootstrap";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Avatar,
+  styled,
+  Rating,
+} from "@mui/material";
+
+import { FavoriteIcon, FavoriteBorderIcon } from "@mui/icons-material";
+import UpdateOutlinedIcon from "@mui/icons-material/UpdateOutlined";
 
 export default function UserInfo(props) {
   const navigate = useNavigate();
@@ -24,30 +41,31 @@ export default function UserInfo(props) {
           <br />
           Mobile Phone: {props.userInfo.mobilePhone}
           <br />
-        </Col>
-      </Row>
-      <Row>
-        <span className="text-white fw-bold fs-3">
-          Joined: {props.userInfo.createdTime[8]}
-          {props.userInfo.createdTime[9]}
-          {props.userInfo.createdTime[7]}
-          {props.userInfo.createdTime[5]}
-          {props.userInfo.createdTime[6]}
-          {props.userInfo.createdTime[4]}
-          {props.userInfo.createdTime[0]}
-          {props.userInfo.createdTime[1]}
-          {props.userInfo.createdTime[2]}
-          {props.userInfo.createdTime[3]}
-        </span>
-      </Row>
-      <Row className="justify-content-center py-2">
-        <Col sm>
+          <span>
+            Joined: {props.userInfo.createdTime[8]}
+            {props.userInfo.createdTime[9]}
+            {props.userInfo.createdTime[7]}
+            {props.userInfo.createdTime[5]}
+            {props.userInfo.createdTime[6]}
+            {props.userInfo.createdTime[4]}
+            {props.userInfo.createdTime[0]}
+            {props.userInfo.createdTime[1]}
+            {props.userInfo.createdTime[2]}
+            {props.userInfo.createdTime[3]}
+          </span>
+          <br />
+          <br />
           <Button
-            className="btn btn-danger "
+            variant="contained"
+            size="large"
+            startIcon={<UpdateOutlinedIcon />}
             onClick={() => editBtn(props.userInfo)}
-            style={{ display: "flex", justifyContent: "center" }}
+            style={{
+              width: "60%",
+              background: "#dc3545",
+            }}
           >
-            Want to update your info?
+            Update Information
           </Button>
         </Col>
       </Row>
